@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Rio Mesa High School Spartans brand style guide: official logos, colors, typography, and usage rules.">
+<meta name="theme-color" content="#11110F">
+<meta property="og:title" content="Spartans Brand Guide">
+<meta property="og:description" content="Official logos, colors, typography, and usage rules for Rio Mesa High School.">
+<meta property="og:image" content="logos/png/rio-mesa-stacked-full-color.png">
+<link rel="icon" type="image/svg+xml" href="logos/svg/rio-mesa-helmet-full-color.svg">
+<link rel="apple-touch-icon" href="logos/png/rio-mesa-helmet-full-color.png">
+<link rel="preload" href="fonts/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<title>Spartans Brand Guide</title>
+<style>
+@font-face{font-family:"Montserrat";src:url("fonts/Montserrat-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Source Code Pro";src:url("fonts/SourceCodePro-Variable.woff2") format("woff2");font-weight:200 900;font-display:swap}
+@font-face{font-family:"Open Sans";src:url("fonts/OpenSans-Variable.woff2") format("woff2");font-weight:300 800;font-display:swap}
+
+
+/* Layout: type-foundry specimen catalog. Dark-first, cream type, a full-width hairline frame;
+   every section is a bordered row with a tiny meta line above an oversized Channel Islands heading.
+   Logos sit on cream "stage" panels because the marks are drawn for light grounds. */
+:root{
+  --bg:#11110F; --panel:#161614; --fg:#F6F0DA; --muted:#8E8B80; --dim:#5F5D56; --line:#2C2B27;
+  --inv-bg:#F6F0DA; --inv-fg:#11110F; --stage:#F6F0DA; --stage-line:#2C2B27;
+  --ok:#9AD6AE; --bad:#F09C8C; --warn:#E6C066; --spec-blue:#E99B9E;
+  --pc:#CE2028; --ac:#000000; --gold:#E99B9E;
+  --stripe:linear-gradient(90deg,#CE2028 50%,#000000 50%);
+  --sec-top:clamp(48px,6vw,88px); --sec-bottom:clamp(72px,9vw,128px); --meta-gap:clamp(28px,3.5vw,48px); --lead-gap:clamp(20px,2vw,28px); --content-gap:clamp(36px,4.5vw,56px);
+  --display:"Montserrat","Arial",sans-serif;
+  --body:"Open Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#F3EFE2; --panel:#F8F5EB; --fg:#141412; --muted:#69665C; --dim:#9C998D; --line:#D6D0BE;
+  --inv-bg:#141412; --inv-fg:#F6F0DA; --stage:#FFFFFF; --stage-line:#D6D0BE;
+  --ok:#0B6B3A; --bad:#A3241B; --warn:#7A5300; --spec-blue:#CE2028; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#F3EFE2; --panel:#F8F5EB; --fg:#141412; --muted:#69665C; --dim:#9C998D; --line:#D6D0BE;
+  --inv-bg:#141412; --inv-fg:#F6F0DA; --stage:#FFFFFF; --stage-line:#D6D0BE;
+  --ok:#0B6B3A; --bad:#A3241B; --warn:#7A5300; --spec-blue:#CE2028; color-scheme:light}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:3px;text-decoration-color:var(--dim)}
+a:hover{text-decoration-color:var(--fg)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+p{margin:0;max-width:66ch}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+.frame{max-width:1440px;margin:0 auto;padding-inline:clamp(16px,2.4vw,32px)}
+.box{border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.lbl{font-size:11.5px;line-height:1.4;color:var(--muted);letter-spacing:.01em}
+.lbl b{color:var(--fg);font-weight:600}
+.dl-link{font-size:11.5px;color:var(--fg);text-decoration:none;border-bottom:1px solid var(--dim);padding-bottom:1px;cursor:pointer;background:none;border-top:0;border-left:0;border-right:0;font-family:var(--body)}
+.dl-link:hover{border-bottom-color:var(--fg)}
+
+/* Top bar: the four primary destinations, louder than the numbered section nav */
+.top{border-bottom:1px solid var(--line)}
+.top .frame{display:grid;grid-template-columns:minmax(200px,1fr) repeat(4,minmax(0,.85fr)) minmax(0,.9fr);min-height:150px}
+.brand{display:flex;align-items:center;gap:12px;padding:20px 0;text-decoration:none}
+.brand img{height:40px;width:auto}
+.brand span{font-family:var(--display);font-size:28px;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.brand sup{font-family:var(--body);font-size:10px;vertical-align:top;margin-left:2px}
+.tab{position:relative;border-left:1px solid var(--line);display:flex;text-decoration:none;color:var(--fg);transition:background .15s,color .15s}
+.tab .ic{display:grid;place-items:center;flex:none;color:var(--muted);transition:color .15s}
+.tab .ic svg{width:100%;height:100%;stroke-width:1.25}
+.tab:hover .ic{color:var(--fg)}
+.tab .tx{display:flex;flex-direction:column;gap:4px;min-width:0}
+.tab .tl{font:400 clamp(20px,2.3vw,32px)/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.tab .n{font-size:11.5px;color:var(--muted);transition:color .15s}
+.tab:hover{background:var(--panel)}
+.top .tab{flex-direction:column;justify-content:space-between;gap:14px;padding:18px 18px 14px}
+.top .tab::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--stripe);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.top .tab:hover::before,.top .tab.on::before{transform:scaleX(1)}
+.top .ic{width:20px;height:20px}
+.top .tab.on{background:var(--inv-bg);color:var(--inv-fg)}
+.top .tab.on .ic{color:var(--inv-fg);opacity:.6}
+.top .tab.on .n{color:var(--inv-fg)}
+.tab-end{border-left:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:0 16px;text-align:center}
+@media (max-width:900px){
+  .top .frame{grid-template-columns:repeat(4,minmax(0,1fr));min-height:0}
+  .brand{grid-column:1/-1;border-bottom:1px solid var(--line);padding:16px 0}
+  .tab{min-height:104px}.tab:nth-child(2){border-left:0}
+  .tab .n{display:none}
+  .top .tab{padding:12px 10px 10px}
+  .tab-end{display:none}
+}
+@media (max-width:480px){.tab .tl{font-size:17px}.top .ic{width:18px;height:18px}}
+
+/* Three-color school stripe (hero): Royal Blue, Light Blue, Gold */
+.accent-bar{display:flex;height:6px;width:150px;margin-bottom:22px}
+.accent-bar span{flex:1}
+
+/* Sticky tester bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
+.tester{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.2fr) auto;align-items:center;gap:20px;padding-block:10px;border-bottom:1px solid var(--line)}
+.tfield{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:6px 0}
+.tfield svg{flex:none;opacity:.6}
+.tfield input{flex:1;min-width:0;background:none;border:0;color:var(--fg);font:400 14px/1.4 var(--body);padding:0}
+.tfield input::placeholder{color:var(--muted)}
+.tfield input:focus{outline:none}
+.presets{display:flex;gap:16px;font-size:13.5px}
+.presets button,.vchips button{background:none;border:0;padding:0;font:500 13.5px/1.4 var(--body);color:var(--muted);cursor:pointer}
+.presets button[aria-pressed="true"],.vchips button[aria-pressed="true"]{color:var(--fg)}
+.vchips button[aria-pressed="true"]{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:5px}
+.presets button:hover,.vchips button:hover{color:var(--fg)}
+.sizer{display:flex;align-items:center;gap:14px;font-size:13.5px}
+.sizer output{min-width:52px;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;flex:1;min-width:60px;height:18px;background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:1px;background:var(--fg)}
+input[type=range]::-moz-range-track{height:1px;background:var(--fg)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--fg);background:var(--bg);margin-top:-8px}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--fg);background:var(--bg)}
+.tools{display:flex;align-items:center;gap:12px}
+.dot{width:16px;height:16px;border-radius:50%;border:1px solid var(--line);cursor:pointer;padding:0}
+.dot[aria-pressed="true"]{outline:1.5px solid var(--fg);outline-offset:2px}
+.theme{background:none;border:0;padding:0;cursor:pointer;color:var(--fg);display:grid;place-items:center}
+.reset{background:none;border:0;padding:0;font:600 13.5px/1 var(--body);color:var(--fg);cursor:pointer;margin-left:8px}
+.secnav{display:flex;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth}
+.secnav::-webkit-scrollbar{display:none}
+.secnav a,.secnav .theme{flex:1 0 auto;min-width:96px;border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:8px;padding:8px 14px;text-decoration:none;color:var(--muted);font:500 12.5px/1.25 var(--body);white-space:nowrap;transition:background .15s,color .15s}
+.secnav a:first-child{border-left:0}
+.secnav .n{font-size:11px;color:var(--dim);transition:color .15s}
+.secnav a:hover,.secnav .theme:hover{background:var(--panel);color:var(--fg)}
+.secnav a{box-shadow:inset 0 -2px 0 transparent}
+.secnav a.on{color:var(--fg);box-shadow:inset 0 -2px 0 var(--fg)}
+.secnav a.on .n{color:var(--muted)}
+.secnav .theme{flex:0 0 auto;color:var(--fg);min-width:72px;background:none;border-top:0;border-right:0;border-bottom:0;cursor:pointer;display:flex;border-radius:0}
+.tester-in{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--navh,43px));z-index:20;background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tester-in .tools{justify-content:flex-end}
+@media (max-width:1000px){.tester{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.presets{display:none}}
+@media (max-width:620px){.tester{grid-template-columns:1fr;gap:12px}.tester-in{position:static}.tester-in .presets{display:flex}.tester-in .tools{justify-content:flex-start}}
+
+/* Rows */
+.row{border-bottom:1px solid var(--line)}
+.row-in{padding:22px clamp(16px,2vw,24px) 40px}
+.meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.meta .r{display:flex;gap:4px 28px;flex-wrap:wrap}
+.h-xl{font-family:var(--display);font-size:clamp(3.4rem,9.5vw,9.5rem);line-height:.92;text-transform:uppercase;letter-spacing:.005em}
+.h-l{font-family:var(--display);font-size:clamp(2.8rem,6.5vw,6.2rem);line-height:.95;text-transform:uppercase}
+.h-s{font-family:var(--display);font-size:1.6rem;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.lead{color:var(--muted);margin-top:18px;font-size:15.5px}
+.lead b{color:var(--fg);font-weight:600}
+
+/* Hero */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:center}
+.hero-grid img{width:100%;max-width:420px;justify-self:end}
+.hero-copy{display:grid;gap:12px;font-size:16px}
+.hero-copy p:first-of-type{color:var(--muted)}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}.hero-grid img{justify-self:start;max-width:280px}}
+
+/* Hairline grids (cells share borders) */
+.grid{display:grid;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.grid>*{border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:1100px){.g4{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:860px){.g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.g4,.g3,.g2{grid-template-columns:1fr}}
+.cell{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.cell .meta{margin:0}
+.stage{background:var(--stage);aspect-ratio:144/85;display:grid;place-items:center;position:relative}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:7%}
+.stage .tag{position:absolute;top:8px;left:8px;font-size:10.5px;color:#4b4a44;background:rgba(0,0,0,.06);padding:3px 6px}
+.cell p{font-size:13px;color:var(--muted)}
+.cell .acts{display:flex;gap:16px;margin-top:auto;padding-top:4px}
+.vchips{display:flex;flex-wrap:wrap;gap:4px 18px}
+
+/* Notes */
+.note{border:1px solid var(--line);padding:14px 16px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;font-size:14px}
+.note .lbl{padding-top:2px}
+.note.warn .lbl{color:var(--warn)}
+.note p{max-width:none}
+@media (max-width:620px){.note{grid-template-columns:1fr;gap:4px}}
+.stack{display:grid;gap:12px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+
+/* Clear space */
+.cs{background:var(--stage);padding:32px;display:grid;place-items:center}
+.cs-box{position:relative;outline:1.5px dashed #F2A900;padding:8%;width:min(100%,440px)}
+.cs-box img{display:block;width:100%;outline:1px solid rgba(206,32,40,.3)}
+.cs-x{position:absolute;font:600 12px/1 var(--mono);color:#8A5D00}
+.cs-x.t{top:2%;left:50%;transform:translateX(-50%)}.cs-x.b{bottom:2%;left:50%;transform:translateX(-50%)}
+.cs-x.l{left:2.5%;top:50%;transform:translateY(-50%)}.cs-x.r{right:2.5%;top:50%;transform:translateY(-50%)}
+
+/* Tables */
+.tbl{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:middle;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th{font-weight:500;font-size:11.5px;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+.sq{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:8px;border:1px solid rgba(128,128,128,.35)}
+.aa{display:inline-grid;place-items:center;width:38px;height:26px;font:700 13px/1 var(--body);margin-right:8px;border:1px solid rgba(128,128,128,.25)}
+.pill{font-size:11px;font-weight:600;padding:2px 6px;border:1px solid currentColor;margin-left:6px}
+.pill.aaa,.pill.aa2{color:var(--ok)} .pill.lg{color:var(--warn)} .pill.fail{color:var(--bad)}
+
+/* Do / Don't */
+.ex{aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden;padding:18px;background:var(--stage);position:relative}
+.ex img{width:100%;height:100%;object-fit:contain}
+.ex.lock{display:flex;gap:6px;align-items:center;justify-content:center}
+.ex.lock img{width:46%;height:auto}
+.verdict{font-size:11.5px;font-weight:600}
+.do .verdict{color:var(--ok)} .dont .verdict{color:var(--bad)}
+.dont .ex::after{content:"";position:absolute;right:10px;bottom:10px;width:22px;height:22px;border-radius:50%;background:#A3241B url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 6l8 8M14 6l-8 8' stroke='white' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.retype{font-family:"Montserrat",sans-serif;font-weight:600;color:#CE2028;font-size:2.3rem;line-height:.95;text-align:center}
+.busy{background:repeating-linear-gradient(45deg,#CE2028 0 14px,#000000 14px 28px,#FFFFFF 28px 42px)!important}
+
+/* Color */
+.sw .chip{height:220px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between}
+.sw .chip span{font-size:11.5px;opacity:.8}
+.sw .chip h3{font-family:var(--display);font-size:clamp(2.2rem,3.4vw,3.2rem);line-height:.95;text-transform:uppercase}
+.sw dl{margin:0;padding:12px 16px 4px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:6px 10px;font-size:12px}
+.sw dt{color:var(--muted)}
+.sw dd{margin:0;min-width:0}
+.sw .use{padding:4px 16px 16px;font-size:12.5px;color:var(--muted)}
+.copy{font:500 12px/1.35 var(--mono);background:none;border:0;padding:0;color:var(--fg);cursor:pointer;text-align:left;border-bottom:1px dashed var(--dim)}
+.copy:hover{border-bottom-color:var(--fg)}
+.ramp{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--line)}
+.ramp button{border:0;min-height:96px;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:2px;cursor:pointer;font:500 11px/1.25 var(--body);text-align:left}
+.ramp button span{font:500 11px/1.25 var(--mono)}
+@media (max-width:700px){.ramp{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* Type specimens */
+#type{--size:120px;--spec-color:var(--fg)}
+.spec-row{border-bottom:1px solid var(--line);padding:16px clamp(16px,2vw,24px) 18px;display:grid;gap:8px}
+.spec-row:first-of-type{border-top:1px solid var(--line)}
+.spec{font-size:min(var(--size),17vw);line-height:1.08;color:var(--spec-color);white-space:nowrap;overflow:hidden;text-overflow:clip;padding-block:.05em;outline:none}
+.spec.reg{font-family:"Montserrat",var(--display)}
+.spec-band{background:#CE2028;padding:18px clamp(16px,2vw,24px);border-bottom:1px solid var(--line)}
+.spec-band .spec{padding-block:.04em}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.glyphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.glyphs span{border-right:1px solid var(--line);border-bottom:1px solid var(--line);aspect-ratio:1;display:grid;place-items:center;font-family:"Montserrat",var(--display);font-size:30px;color:var(--spec-color)}
+.glyphs span:hover{background:var(--inv-bg);color:var(--inv-fg)}
+.body-spec{font-family:var(--body);font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.05;font-weight:600}
+ul.tick{margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:14px}
+ul.tick b{font-weight:600}
+
+/* AI */
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;padding:16px;display:grid;gap:6px;align-content:start;font-size:13.5px;color:var(--muted)}
+.steps li::before{content:"0" counter(s);font-family:var(--display);font-size:3.4rem;line-height:.9;color:var(--fg)}
+.steps b{color:var(--fg);font-weight:600;font-size:14px}
+.prompt{padding:16px;display:grid;gap:10px;font-size:13.5px}
+.prompt q{display:block;quotes:none;font:400 13px/1.55 var(--mono);color:var(--fg);border-left:2px solid var(--line);padding-left:12px}
+.prompt.bad .verdict{color:var(--bad)} .prompt.good .verdict{color:var(--ok)}
+
+/* Ask */
+.askf{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.askf .tfield{flex:1 1 280px}
+.btn{background:var(--inv-bg);color:var(--inv-fg);border:0;font:600 13px/1 var(--body);padding:11px 16px;cursor:pointer;text-decoration:none;display:inline-block}
+.answer{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start;border-top:1px solid var(--line);padding-top:20px;margin-top:6px}
+@media (max-width:640px){.answer{grid-template-columns:1fr}}
+.answer dl{margin:10px 0 0;display:grid;grid-template-columns:60px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.answer dt{color:var(--muted);font-size:12px;padding-top:2px}
+.answer dd{margin:0}
+
+footer{padding-block:20px 40px}
+footer .frame{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--inv-bg);color:var(--inv-fg);padding:9px 14px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* How-to clips */
+.clip{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(16px,2.4vw,32px);align-items:center;margin:28px 0 0;border:1px solid var(--line);padding:14px;background:var(--panel)}
+.clip video{display:block;width:100%;aspect-ratio:16/9;background:#11110F;border-radius:2px}
+.clip figcaption{display:grid;gap:10px;padding-right:8px}
+.clip ol{margin:4px 0 0;padding-left:1.25em;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.clip ol li::marker{color:var(--gold);font-weight:600}
+@media (max-width:860px){.clip{grid-template-columns:1fr}.clip figcaption{padding:4px 2px 2px}}
+/* Section rhythm: same spacing tokens as the Del Sol and district guides */
+.row-in{padding:var(--sec-top) clamp(16px,2vw,24px) var(--sec-bottom)}
+.row-in>.meta:first-child{margin-bottom:var(--meta-gap)}
+.h-l+.lead,.h-l+.stack,.h-l+.two{margin-top:var(--lead-gap)}
+.lead+.clip,.lead+.grid,.lead+.two,.lead+.meta,.lead+.tbl,.lead+.stack{margin-top:var(--content-gap)!important}
+/* Hero title: always two lines, sized to the column width (RAIDERS BRAND = 5.27em in Channel Islands) */
+.hero-copy{container-type:inline-size}
+.hero-title span{display:block;white-space:nowrap}
+.hero-title{font-size:clamp(2.2rem,6.5vw,6.4rem)}
+@supports (font-size:1cqi){.hero-title{font-size:calc(100cqi / 5.45)}}
+.stage .tag{z-index:1}
+.stage.wide img{padding:5%}
+.hero-mark{display:grid;place-items:center;background:var(--stage);padding:clamp(16px,3vw,36px);aspect-ratio:144/85}
+/* Montserrat display overrides: wider than the condensed faces used on other guides, so headings run smaller */
+h1,h2,h3,.h-xl,.h-l,.h-s,.brand span,.tab .tl,.sw .chip h3,.steps li::before{font-weight:700;letter-spacing:-.01em}
+.h-l{font-size:clamp(2rem,4.6vw,4.4rem);line-height:1.02}
+.h-s{font-size:1.15rem;line-height:1.15}
+.brand span{font-size:18px;letter-spacing:.01em}
+.tab .tl{font-size:clamp(14px,1.45vw,19px);line-height:1.1}
+.sw .chip h3{font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:1}
+.steps li::before{font-size:2.6rem}
+.spec{font-weight:600;line-height:1.12}
+.spec.reg{font-family:"Montserrat",var(--display)}
+.spec.mono{font-family:"Source Code Pro",ui-monospace,monospace;font-weight:400}
+.glyphs span{font-family:"Montserrat",var(--display);font-weight:600;font-size:26px}
+.glyphs.mono span{font-family:"Source Code Pro",ui-monospace,monospace;font-weight:400}
+.body-spec{font-family:"Source Code Pro",ui-monospace,monospace;font-weight:400;font-size:clamp(2rem,4vw,3.4rem)}
+.hero-title{font-size:clamp(1.8rem,5vw,4.8rem);letter-spacing:-.015em}
+@supports (font-size:1cqi){.hero-title{font-size:calc(100cqi / 9.9)}}
+.hero-grid .hero-mark{max-width:520px;justify-self:end;width:100%}.hero-grid .hero-mark img{max-width:100%;max-height:300px;width:auto;height:auto;justify-self:auto}.ex{grid-template:minmax(0,1fr)/minmax(0,1fr)}.ex img{min-width:0;min-height:0;max-width:100%;max-height:100%}.ex.lock img{width:46%;height:auto;max-height:100%}.hero-copy p{text-wrap:balance}p{text-wrap:pretty}
+.top .frame{grid-template-columns:minmax(220px,1fr) repeat(4,minmax(0,.85fr)) minmax(0,.9fr)}
+@media (max-width:900px){.top .frame{grid-template-columns:repeat(4,minmax(0,1fr))}.tab .tl{font-size:13px}}
+@media (max-width:480px){.tab .tl{font-size:10.5px;letter-spacing:0}.h-l{font-size:clamp(1.7rem,8vw,2.4rem)}}
+</style>
+</head>
+<body>
+<header class="top" id="topnav">
+  <div class="frame box">
+    <a class="brand" href="#top" id="top"><img src="logos/svg/rio-mesa-helmet-full-color.svg" alt=""><span>Spartans<sup>™</sup></span></a>
+    <a class="tab" href="#logo" data-sec="logo"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><circle cx="12" cy="9" r="2.6"/><path d="M8.6 14l-1.6 7 5-2.6 5 2.6-1.6-7"/></svg></span><span class="tx"><span class="tl">Logos</span><span class="n">9 files · SVG + PNG</span></span></a><a class="tab" href="#color" data-sec="color"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.8-.8 1.8-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.8 1.8-1.8H16.5A4.5 4.5 0 0 0 21 10.5C21 6.4 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.1"/><circle cx="9.5" cy="7" r="1.1"/><circle cx="14.5" cy="7" r="1.1"/><circle cx="17.3" cy="10.7" r="1.1"/></svg></span><span class="tx"><span class="tl">Colors</span><span class="n">HEX · RGB · CMYK</span></span></a><a class="tab" href="#type" data-sec="type"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4.5h16V7"/><path d="M12 4.5v15"/><path d="M8.5 19.5h7"/></svg></span><span class="tx"><span class="tl">Type</span><span class="n">Montserrat · Source Code</span></span></a><a class="tab" href="#usage" data-sec="usage"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><rect x="9" y="2.5" width="6" height="4" rx="1"/><path d="M9 13.5l2 2 4-4.5"/></svg></span><span class="tx"><span class="tl">Rules</span><span class="n">Do's &amp; don'ts</span></span></a>
+    <div class="tab-end lbl"><span>Rio Mesa High School<br>Brand Style Guide · 2026</span><a class="dl-link" href="https://teolopez-ouhsd.github.io/communications/brand-guidelines.html">← District brand guide</a></div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="frame box" style="padding-inline:0">
+    <nav class="secnav" id="secnav" aria-label="Sections"><a href="#logo"><span class="n">01</span><span>Logo Library</span></a><a href="#clear-space"><span class="n">02</span><span>Clear Space</span></a><a href="#usage"><span class="n">03</span><span>Usage Rules</span></a><a href="#color"><span class="n">04</span><span>Color</span></a><a href="#accessibility"><span class="n">05</span><span>Accessibility</span></a><a href="#type"><span class="n">06</span><span>Typography</span></a><a href="#name"><span class="n">07</span><span>Name</span></a><a href="#ai"><span class="n">08</span><span>AI &amp; Flyers</span></a><a href="#ask"><span class="n">09</span><span>Ask</span></a><button class="theme" type="button" id="themeBtn" aria-label="Switch light or dark"><svg width="18" height="18" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg><span class="n">Theme</span></button></nav>
+  </div>
+</div>
+
+<main class="frame box" style="padding-inline:0">
+<!-- HERO -->
+<section class="row"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>Rio Mesa High School</b> · Oxnard, California</span><span class="r lbl"><span>Official School Logos &amp; Brand Kit</span><span>Oxnard Union High School District</span></span></div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="accent-bar" aria-hidden="true"><span style="background:#CE2028"></span><span style="background:#000000"></span></div>
+      <h1 class="h-xl hero-title" style="margin-bottom:18px"><span>Spartans Brand</span><span>Style Guide</span></h1>
+      <p>How to use the Rio Mesa Spartans logos, colors, and type consistently across print, web, apparel, presentations, and AI-generated materials.</p>
+      <p><b>Everyone creating Rio Mesa materials, including staff, coaches, clubs, ASB, and boosters, should check this page before designing anything new.</b></p>
+    </div>
+    <div class="hero-mark"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt="Rio Mesa High School stacked logo: a red Spartan helmet above the school name"></div>
+  </div>
+</div></section>
+
+<!-- LOGO LIBRARY -->
+<section class="row" id="logo"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>01</b> Logo Library</span><span class="r lbl"><span>3 marks</span><span>9 files</span><span>SVG + PNG</span></span></div>
+    <h2 class="h-l">Logo Library</h2>
+    <p class="lead">Pick the mark that fits your space and the version that fits how it will be printed or displayed. Always use these files. <b>Never recreate, redraw, trace, or approximate any Rio Mesa mark.</b></p>
+  <figure class="clip">
+    <video poster="videos/howto-logos-poster.jpg" muted loop playsinline preload="none" controls aria-label="How-to video: Choose a logo version" aria-describedby="steps-logos"><source src="videos/howto-logos.mp4" type="video/mp4"><source src="videos/howto-logos.webm" type="video/webm"></video>
+    <figcaption><span class="lbl"><b>Watch</b> · 0:31 · no sound</span><h3 class="h-s">Choose a logo version</h3><ol id="steps-logos"><li>Start with the background you are designing on.</li><li>White or light background: use the full-color logo.</li><li>On Red, Black, or dark: use the white version.</li><li>Black-and-white printing: use the black version.</li><li>Wide, short space: Horizontal. Tall: Stacked. Square: Helmet.</li><li>Then pick the file format: SVG for web and signs, PNG for slides and docs.</li></ol></figcaption>
+  </figure>
+  <div class="meta" style="margin:28px 0 12px">
+    <div class="vchips" role="group" aria-label="Color version"><button type="button" data-v="full-color" aria-pressed="true">Full color</button><button type="button" data-v="black" aria-pressed="false">Black</button><button type="button" data-v="white" aria-pressed="false">White</button></div>
+    <a class="btn" href="rio-mesa-spartans-logos.zip" download>Download all logos ↓</a>
+  </div>
+  <p class="lbl" id="vhint" style="margin-bottom:14px"></p>
+  <div class="grid g3" id="logos"></div>
+  <div class="note" style="margin-top:20px"><span class="lbl">File formats</span><p>SVG is the vector master for print shops, signage, embroidery digitizing, and anything that will be scaled. PNG files are 2400px wide with transparent backgrounds for slides, documents, and the web. The original Rio Mesa brand kit sheet: <a class="dl-link" href="sheets/rio-mesa-brand-sheet.png" download>PNG</a> <a class="dl-link" href="sheets/rio-mesa-brand-kit.pdf" download>PDF</a></p></div>
+</div></section>
+
+<!-- CLEAR SPACE -->
+<section class="row" id="clear-space"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>02</b> Clear Space &amp; Size</span><span class="r lbl"><span>x = about one-sixth of the logo's height</span></span></div>
+    <h2 class="h-l">Clear Space</h2>
+    <p class="lead">Keep the area around the logo free of text, photos, other logos, and the edge of the page so it can breathe and stay legible.</p>
+  <figure class="clip">
+    <video poster="videos/howto-clearspace-poster.jpg" muted loop playsinline preload="none" controls aria-label="How-to video: Give the logo room" aria-describedby="steps-clearspace"><source src="videos/howto-clearspace.mp4" type="video/mp4"><source src="videos/howto-clearspace.webm" type="video/webm"></video>
+    <figcaption><span class="lbl"><b>Watch</b> · 0:21 · no sound</span><h3 class="h-s">Give the logo room</h3><ol id="steps-clearspace"><li>Find the logo's height.</li><li>Keep one-sixth of that height as empty space on every side.</li><li>Text, photos, and edges stay outside that line.</li><li>Too small for the detail? Switch to the Spartan Helmet.</li></ol></figcaption>
+  </figure>
+  <div class="two">
+    <div class="cs"><div class="cs-box"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt="Rio Mesa logo with clear space zone marked"><span class="cs-x t">x</span><span class="cs-x b">x</span><span class="cs-x l">x</span><span class="cs-x r">x</span></div></div>
+    <div class="stack">
+      <p><b>Minimum clear space on every side equals x,</b> about one-sixth of the logo's height. The original kit sheet shows this as the light blue margin around each logo. When the logo is resized, the clear space scales with it.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Recommended minimum</th><th>Print</th><th>Screen</th></tr></thead>
+        <tbody class="num"><tr><td>Stacked Logo</td><td>1.25 in wide</td><td>120 px wide</td></tr><tr><td>Horizontal Logo</td><td>2 in wide</td><td>220 px wide</td></tr><tr><td>Spartan Helmet</td><td>0.75 in wide</td><td>64 px wide</td></tr></tbody>
+      </table></div>
+      <div class="note"><span class="lbl">Small sizes</span><p>Below these sizes the helmet's crest lines fill in and the thin HIGH SCHOOL line disappears. For favicons, social avatars, and small embroidery, switch to the Spartan Helmet alone.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- USAGE -->
+<section class="row" id="usage"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>03</b> Usage Rules</span><span class="r lbl"><span>4 do</span><span>8 don't</span></span></div>
+    <h2 class="h-l">Protect the Marks</h2>
+    <p class="lead">Proportions, colors, and construction are fixed. If you find yourself dragging a corner handle, changing a fill color, or adding an effect, stop and grab a different file from the library instead.</p>
+  <figure class="clip">
+    <video poster="videos/howto-usage-poster.jpg" muted loop playsinline preload="none" controls aria-label="How-to video: Protect the marks" aria-describedby="steps-usage"><source src="videos/howto-usage.mp4" type="video/mp4"><source src="videos/howto-usage.webm" type="video/webm"></video>
+    <figcaption><span class="lbl"><b>Watch</b> · 0:31 · no sound</span><h3 class="h-s">Protect the marks</h3><ol id="steps-usage"><li>Never stretch or squash. Hold Shift when resizing.</li><li>Never recolor the logo.</li><li>No shadows, glows, or added outlines.</li><li>Don't rotate or tilt it.</li><li>On Black or Red, switch to the white logo.</li><li>Need a different look? Choose another official file.</li></ol></figcaption>
+  </figure>
+  <div class="grid g4">
+    <div class="cell do"><div class="ex"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt=""></div><span class="verdict">✓ Do</span><p>Use the full-color Stacked Logo on white or light backgrounds whenever color printing is available.</p></div>
+    <div class="cell do"><div class="ex" style="background:#000000"><img src="logos/svg/rio-mesa-stacked-white.svg" alt=""></div><span class="verdict">✓ Do</span><p>On Red, Black, or dark backgrounds, switch to the white logo.</p></div>
+    <div class="cell do"><div class="ex"><img src="logos/svg/rio-mesa-horizontal-full-color.svg" alt=""></div><span class="verdict">✓ Do</span><p>Use the Horizontal Logo for wide, short spaces: web headers, banners, and email signatures.</p></div>
+    <div class="cell do"><div class="ex"><img src="logos/svg/rio-mesa-helmet-full-color.svg" alt=""></div><span class="verdict">✓ Do</span><p>Use the Spartan Helmet for square spaces: social avatars, stickers, patches, and app icons.</p></div>
+    <div class="cell dont"><div class="ex"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt="" style="transform:scaleX(1.45)"></div><span class="verdict">✕ Don't</span><p>Stretch, squash, or distort. Hold Shift when resizing.</p></div>
+    <div class="cell dont"><div class="ex"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt="" style="filter:hue-rotate(200deg) saturate(1.5)"></div><span class="verdict">✕ Don't</span><p>Recolor. Red, black, and white only, as supplied.</p></div>
+    <div class="cell dont"><div class="ex"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt="" style="filter:drop-shadow(5px 6px 0 #888) drop-shadow(0 0 8px #a00)"></div><span class="verdict">✕ Don't</span><p>Add shadows, glows, outlines, bevels, or other effects.</p></div>
+    <div class="cell dont"><div class="ex"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt="" style="transform:rotate(-14deg)"></div><span class="verdict">✕ Don't</span><p>Rotate or tilt the logo.</p></div>
+    <div class="cell dont"><div class="ex" style="background:#000000"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt=""></div><span class="verdict">✕ Don't</span><p>Put the full-color logo on Black or dark backgrounds. The black lettering and red helmet lose contrast. Use the white logo.</p></div>
+    <div class="cell dont"><div class="ex"><div class="retype">RIO MESA<br>HIGH SCHOOL</div></div><span class="verdict">✕ Don't</span><p>Type out the school name, even in the brand typeface. Place the official logo file.</p></div>
+    <div class="cell dont"><div class="ex busy"><img src="logos/svg/rio-mesa-stacked-full-color.svg" alt=""></div><span class="verdict">✕ Don't</span><p>Place the logo on busy photos or patterns. Find a calm area or add a solid panel behind it.</p></div>
+    <div class="cell dont"><div class="ex lock"><img src="logos/svg/rio-mesa-helmet-full-color.svg" alt=""><img src="logos/svg/rio-mesa-horizontal-full-color.svg" alt=""></div><span class="verdict">✕ Don't</span><p>Build new lockups by combining pieces. Use the Stacked or Horizontal Logo file instead.</p></div>
+  </div>
+</div></section>
+
+<!-- COLOR -->
+<section class="row" id="color"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>04</b> Color</span><span class="r lbl"><span>CMYK · RGB · HEX</span><span>Click any value to copy</span></span></div>
+    <h2 class="h-l">Color Palette</h2>
+    <p class="lead">Red leads. Black supports: it sets the one-ink logos and dark backgrounds. Together they are the whole palette.</p>
+  <figure class="clip">
+    <video poster="videos/howto-color-poster.jpg" muted loop playsinline preload="none" controls aria-label="How-to video: Use the colors" aria-describedby="steps-color"><source src="videos/howto-color.mp4" type="video/mp4"><source src="videos/howto-color.webm" type="video/webm"></video>
+    <figcaption><span class="lbl"><b>Watch</b> · 0:26 · no sound</span><h3 class="h-s">Use the colors</h3><ol id="steps-color"><li>Rio Mesa has two official colors.</li><li>Red leads. Black supports.</li><li>On Red or Black, use white text.</li><li>For text on white, use Red or Black.</li><li>Avoid black text on Red, and Red text on Black.</li></ol></figcaption>
+  </figure>
+  <div class="grid" id="swatches" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))"></div>
+  <p class="lbl" style="margin:24px 0 8px">Red · shades &amp; tints</p>
+  <div class="ramp" id="ramp-a"></div>
+  <p class="lbl" style="margin:16px 0 8px">Black · shades &amp; tints</p>
+  <div class="ramp" id="ramp-b"></div>
+  <div class="stack" style="margin-top:20px">
+    <div class="note"><span class="lbl">Base vs. tints</span><p><b>Base colors</b> are for primary brand moments: logos, headers, signage. <b>Shades and tints</b> are for supporting work such as web UI, charts, table fills, and backgrounds. For print, match the official CMYK values.</p></div>
+    <div class="note"><span class="lbl">RGB &amp; Pantone</span><p>RGB values here are calculated from the official HEX codes. The original kit sheet lists RGB as percentages, which are converted here to the usual 0 to 255 scale. Pantone numbers are not part of this kit, so for spot-color jobs ask Teo before committing to a PMS match.</p></div>
+    <div class="note"><span class="lbl">Black &amp; gray</span><p>Black, grayscale, and white logo versions use the black, gray, and white built into those files. They are for one-ink and photocopy jobs, so they aren't part of the brand palette unless listed above.</p></div>
+  </div>
+</div></section>
+
+<!-- ACCESSIBILITY -->
+<section class="row" id="accessibility"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>05</b> Accessibility</span><span class="r lbl"><span>WCAG 2.2</span><span>4.5:1 body · 3:1 large text &amp; UI</span></span></div>
+  <h2 class="h-l">Contrast</h2>
+  <p class="lead">WCAG requires at least <b>4.5:1</b> contrast for normal body text, and at least <b>3:1</b> for large text (18px and up, or 14px bold) and UI elements like icons, buttons, and input borders. Ratios below are calculated from the official HEX values.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Color</th><th>As text on white</th><th>As text on black</th><th>White text on it</th><th>Black text on it</th></tr></thead>
+    <tbody id="contrast" class="num"></tbody>
+  </table></div>
+  <div class="two" style="margin-top:20px">
+    <div class="note warn"><span class="lbl">Never</span><p><b>Red text on Black, or Black text on Red, at body sizes.</b> They measure 3.9:1: fine for large headlines (24px or bolder) but under the 4.5:1 body-text minimum. Use white text on either color instead.</p></div>
+    <div class="note warn"><span class="lbl">Avoid</span><p><b>Thin red text on photos or Black.</b> Red lettering on dark photos loses edge definition. Use the white logo on dark backgrounds.</p></div>
+  </div>
+  <ul class="tick" style="margin-top:20px"><li>Red on white passes AA (5.4:1). Use it for headings, links, and buttons with white text.</li><li>White text on Red passes AA (5.4:1).</li><li>Black on white is the strongest pairing at 21:1. Use it for body text.</li><li>Red on Black (3.9:1) works for large headlines only.</li><li>Underline links regardless of color, so color isn't the only signal.</li></ul>
+</div></section>
+
+<!-- TYPE -->
+<section class="row" id="type">
+  <div class="row-in" style="padding-bottom:28px">
+    <div class="meta"><span class="lbl"><b>06</b> Typography</span><span class="r lbl"><span>Montserrat Semi-Bold · headlines</span><span>Source Code Pro · body</span><span>Free Google Fonts</span></span></div>
+      <h2 class="h-l">Montserrat &amp; Source Code</h2>
+      <p class="lead">The Rio Mesa kit pairs <b>Montserrat Semi-Bold</b> for headlines with <b>Source Code Pro</b> for body text. Both are free, both cover accents, ñ, ¿, and ¡, and both are included on this page. Use the tester below: type your own wording or pick a preset, drag the slider to resize, and choose a color.</p>
+  <figure class="clip">
+    <video poster="videos/howto-type-poster.jpg" muted loop playsinline preload="none" controls aria-label="How-to video: Use the typefaces" aria-describedby="steps-type"><source src="videos/howto-type.mp4" type="video/mp4"><source src="videos/howto-type.webm" type="video/webm"></video>
+    <figcaption><span class="lbl"><b>Watch</b> · 0:26 · no sound</span><h3 class="h-s">Use the typefaces</h3><ol id="steps-type"><li>Use Montserrat Semi-Bold for headlines.</li><li>Use Source Code Pro for body text.</li><li>Both are free Google Fonts.</li><li>Set Spanish in either one: both have accents and the ñ.</li><li>Never retype the logo. Place the logo file.</li></ol></figcaption>
+  </figure>
+    <div class="meta" style="margin:22px 0 0"><span></span><a class="btn" href="https://fonts.google.com/specimen/Montserrat" target="_blank" rel="noopener">Get Montserrat ↗</a></div>
+  </div>
+    <div class="tester tester-in" aria-label="Type tester" style="padding-inline:clamp(16px,2vw,24px)">
+      <label class="tfield" for="tt"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 2l3 3-8 8H3v-3z"/></svg><input id="tt" type="text" placeholder="Your text" autocomplete="off"></label>
+      <div class="presets" role="group" aria-label="Sample text">
+        <button type="button" data-p="spirit" aria-pressed="true">Spirit</button>
+        <button type="button" data-p="events" aria-pressed="false">Events</button>
+        <button type="button" data-p="numbers" aria-pressed="false">Numbers</button>
+      </div>
+      <div class="sizer"><output id="szo" for="sz">96px</output><input id="sz" type="range" min="32" max="200" value="96" aria-label="Sample size"></div>
+      <div class="tools" id="tdots"></div>
+    </div>
+  <div class="spec-row">
+    <div class="meta" style="margin:0"><span class="lbl"><b>Montserrat Semi-Bold</b></span><span class="r lbl"><span>Headlines in any brand color</span><a class="dl-link" href="fonts/Montserrat-Variable.woff2" download>WOFF2 ↓</a><a class="dl-link" href="https://fonts.google.com/specimen/Montserrat" target="_blank" rel="noopener">Google Fonts ↗</a></span></div>
+    <div class="spec reg" data-i="0">Go Spartans</div>
+    <div class="foot lbl"><span>Everyday headlines, event titles, and player names</span><span>Semi-Bold 600 for headlines</span></div>
+  </div>
+  <div class="spec-band">
+    <div class="meta" style="margin:0 0 8px"><span class="lbl" style="color:#fff"><b>White on Red</b></span><span class="lbl" style="color:#fff">Passes AA (5.4:1)</span></div>
+    <div class="spec reg" data-i="1" style="color:#fff">Spartan Pride</div>
+  </div>
+  <div class="spec-row">
+    <div class="meta" style="margin:0"><span class="lbl"><b>Source Code Pro</b></span><span class="r lbl"><span>Body text and captions</span><a class="dl-link" href="fonts/SourceCodePro-Variable.woff2" download>WOFF2 ↓</a><a class="dl-link" href="https://fonts.google.com/specimen/Source+Code+Pro" target="_blank" rel="noopener">Google Fonts ↗</a></span></div>
+    <div class="spec mono" data-i="2" style="font-size:min(calc(var(--size) * .62),11vw)">Red & Black</div>
+    <div class="foot lbl"><span>Paragraphs, captions, letters, forms, and tables</span><span>Regular 400 for body</span></div>
+  </div>
+  <div class="row-in" style="padding-top:28px">
+    <p class="lbl" style="margin-bottom:10px">Character set · Montserrat · hover to inspect</p>
+    <div class="glyphs" id="glyphs"></div>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="cell" style="gap:14px">
+        <div class="meta" style="margin:0"><span class="lbl"><b>Open Sans</b> · web body</span><span class="r lbl"><a class="dl-link" href="https://fonts.google.com/specimen/Open+Sans" target="_blank" rel="noopener">Google Fonts ↗</a></span></div>
+        <div class="body-spec" style="font-family:'Open Sans',sans-serif;font-weight:600">Open Sans</div>
+        <p style="font-size:14px;color:var(--muted)">This guide's own page text, and the district's body face. For long paragraphs on the web, Open Sans is a comfortable alternative to Source Code Pro. Both read well on screen.</p>
+      </div>
+      <div class="cell" style="gap:14px">
+        <div class="meta" style="margin:0"><span class="lbl"><b>Installing</b> the fonts</span></div>
+        <ul class="tick">
+          <li><b>Mac or Windows:</b> download the families from Google Fonts and install them.</li>
+          <li><b>Google Docs and Slides:</b> both families are already in the font menu.</li>
+          <li><b>Websites and Wix:</b> Montserrat and Source Code Pro are available as built-in or Google fonts.</li>
+          <li><b>Canva:</b> both are available in the font list, so there is nothing to upload.</li>
+          <li><b>Colors:</b> any brand color works for headlines. See the Accessibility section for pairings.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note warn" style="margin-top:20px"><span class="lbl">Important</span><p><b>Type never replaces the logo.</b> Never type the school name in Montserrat as a stand-in for the logo. Always place the official logo files. Set Spanish in Montserrat or Source Code Pro; both include the accented letters.</p></div>
+  </div>
+</section>
+
+<!-- NAME -->
+<section class="row" id="name"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>07</b> Name &amp; Mascot</span></div>
+  <h2 class="h-l">Writing the Name</h2>
+  <div class="grid g2">
+    <div class="cell"><span class="verdict" style="color:var(--ok)">✓ Do</span><ul class="tick"><li>Use <b>Rio Mesa High School</b> on first reference in formal writing, then <b>Rio Mesa</b> or <b>RMHS</b>.</li><li>The team name is <b>Spartans</b>: capital S, plural. One athlete or the mascot figure is <b>a Spartan</b>.</li><li>Write <b>Go Spartans!</b> or <b>Rio Mesa Spartans</b> in spirit copy.</li><li>Include <b>Oxnard Union High School District</b> on official documents, letterhead, and forms.</li></ul></div>
+    <div class="cell"><span class="verdict" style="color:var(--bad)">✕ Don't</span><ul class="tick"><li>Write <b>Riomesa</b> as one word. Rio Mesa is two words.</li><li>Use a lowercase "spartans" or put the name in quotes.</li><li>Type the school name in place of a logo; place the logo file instead.</li></ul></div>
+  </div>
+</div></section>
+
+<!-- AI -->
+<section class="row" id="ai"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>08</b> AI &amp; Flyers</span><span class="r lbl"><span>Artwork only · real logo · real fonts</span></span></div>
+    <h2 class="h-l">AI Image Tools</h2>
+    <p class="lead">Image generators can't reproduce the Spartan exactly. Ask one to "include the Rio Mesa logo" and it invents a new, slightly wrong mascot with made-up lettering. Use AI for the artwork only, then add the real logo and text yourself.</p>
+  <figure class="clip">
+    <video poster="videos/howto-ai-poster.jpg" muted loop playsinline preload="none" controls aria-label="How-to video: Make a flyer with AI art" aria-describedby="steps-ai"><source src="videos/howto-ai.mp4" type="video/mp4"><source src="videos/howto-ai.webm" type="video/webm"></video>
+    <figcaption><span class="lbl"><b>Watch</b> · 0:21 · no sound</span><h3 class="h-s">Make a flyer with AI art</h3><ol id="steps-ai"><li>Use AI for the background art only.</li><li>Leave calm, empty space for the logo.</li><li>Place the real logo file from this guide.</li><li>Add the words yourself in Montserrat and Source Code Pro.</li></ol></figcaption>
+  </figure>
+  <ol class="steps grid g4">
+    <li><b>Generate artwork only</b><span>Backgrounds, illustration, or photo-style scenes. No logos, mascots, text, or seals.</span></li>
+    <li><b>Leave clear space</b><span>Ask for empty, calm space in a corner or along one edge where the logo will go.</span></li>
+    <li><b>Place the real logo</b><span>Drop the official PNG or SVG into Canva, Adobe Express, Slides, or Word.</span></li>
+    <li><b>Add text by hand</b><span>Set headlines in Montserrat and body copy in Source Code Pro.</span></li>
+  </ol>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="prompt bad"><span class="verdict">✕ Avoid</span><q>Create a flyer for Rio Mesa High School's homecoming with the Spartans logo and school colors.</q><p class="lbl">The tool will invent a new helmet and guess at "school colors."</p></div>
+    <div class="prompt good"><span class="verdict">✓ Use instead</span><q>Generate a bright, photographic stadium-at-night background in black with red #CE2028 light. Leave empty negative space in the upper third. No text, no logos, no mascots.</q><p class="lbl">Hex codes, not color names. Then add the logo and words yourself.</p></div>
+  </div>
+  <ul class="tick" style="margin-top:20px">
+    <li>Never ask an AI tool to draw, recreate, or "improve" the Spartan helmet.</li>
+    <li>Never upload the logo as a reference image for an AI tool to imitate.</li>
+    <li>Confirm clear space and contrast before you publish.</li>
+  </ul>
+</div></section>
+
+<!-- ASK -->
+<section class="row" id="ask"><div class="row-in">
+  <div class="meta"><span class="lbl"><b>09</b> Quick Help</span><span class="r lbl"><span>11 common jobs</span></span></div>
+  <h2 class="h-l">What Are You Making?</h2>
+  <p class="lead">Pick a common job, or describe what you're making, to get the right mark, version, colors, and rules for it.</p>
+  <form class="askf" id="askf" style="margin-top:24px">
+    <label class="tfield" for="askq"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg><input id="askq" type="text" placeholder="e.g. embroidered coaching polos, a club T-shirt, a homecoming flyer" autocomplete="off"></label>
+    <button class="btn" type="submit">Find guidance</button>
+  </form>
+  <div class="vchips" id="askchips" style="margin:16px 0 18px"></div>
+  <div class="answer" id="answer"></div>
+</div></section>
+</main>
+
+<footer><div class="frame">
+  <span class="lbl">Rio Mesa High School · Brand Style Guide · Logos and brand kit supplied by the school · Part of Oxnard Union High School District</span>
+  <span class="lbl">Questions before publishing? Teo Lopez · <button class="copy" data-copy="teo.lopez@oxnardunion.org">teo.lopez@oxnardunion.org</button></span>
+</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const CFG={"prefix": "rio-mesa", "variants": [{"key": "full-color", "label": "Full color", "hint": "Full color is the default: the Spartan helmet and name in Red on white or light backgrounds."}, {"key": "black", "label": "Black", "hint": "Black is a single-ink black version. For black-and-white printing, newsletters, stamps, and single-ink jobs."}, {"key": "white", "label": "White", "hint": "White is the reversed logo with a transparent background. Use it on Red, Black, or dark backgrounds only.", "dark": true}], "marks": [{"id": "stacked", "name": "Stacked Logo", "desc": "The Spartan helmet over RIO MESA HIGH SCHOOL. The go-to mark for official materials, letterhead, signage, and spirit graphics.", "vers": ["full-color", "black", "white"]}, {"id": "horizontal", "name": "Horizontal Logo", "desc": "The helmet beside RIO MESA HIGH SCHOOL. Wide spaces: web headers, banners, email signatures, and scoreboards.", "vers": ["full-color", "black", "white"]}, {"id": "helmet", "name": "Spartan Helmet", "desc": "The helmet without lettering. Square and tight spaces: social avatars, stickers, helmets, caps, and spirit art.", "vers": ["full-color", "black", "white"]}], "colors": [{"n": "Red", "hex": "CE2028", "cmyk": "0 / 84 / 81 / 19", "role": "Primary", "use": "Lead color. Spartan helmet, school name, buttons, headers, signage.", "fg": "#FFFFFF"}, {"n": "Black", "hex": "000000", "cmyk": "0 / 0 / 0 / 100", "role": "Secondary", "use": "Support. Body text, one-ink black logos, dark backgrounds.", "fg": "#F6F0DA"}], "presets": {"spirit": ["Go Spartans", "Spartan Pride", "Red & Black", "Rio Mesa"], "events": ["Homecoming 2026", "Friday Night Lights", "Senior Night", "Spring Showcase"], "numbers": ["Class of 2027", "Kickoff 7:00 PM", "$5 Admission", "0123456789"]}, "P": "CE2028", "A": "000000", "short": "Rio Mesa", "team": "Spartans", "darkstage": "#000000", "ask": [{"k": "Letter or policy doc", "kw": ["letter", "policy", "memo", "handbook", "document", "letterhead", "form", "newsletter", "word"], "mark": ["stacked", "full-color"], "use": "Stacked or Horizontal Logo, full color, top left of the first page. Black version or grayscale copy if it will be photocopied.", "color": "Red for headings and buttons; Black for body text and one-ink jobs.", "type": "Montserrat Semi-Bold for the title, Source Code Pro or Open Sans for body copy.", "rule": "Include \"Oxnard Union High School District\" in the header or footer."}, {"k": "Business cards", "kw": ["business card", "card", "name badge", "badge", "stationery"], "mark": ["horizontal", "full-color"], "use": "Horizontal Logo, full color, on a white card.", "color": "Red for headings and buttons; Black for body text and one-ink jobs.", "type": "Montserrat for the name line and Source Code Pro for contact details.", "rule": "Keep clear space; don't crowd the logo with contact info."}, {"k": "Social media avatar", "kw": ["social", "instagram", "facebook", "avatar", "profile", "tiktok", "x ", "twitter", "youtube", "favicon", "icon", "app"], "mark": ["helmet", "full-color"], "use": "Spartan Helmet, centered with room for the circular crop.", "color": "The Spartan Helmet on a white background, with room for the circular crop.", "type": "No text in the avatar.", "rule": "Never use a horizontal logo as an avatar; the lettering becomes unreadable."}, {"k": "T-shirt or spirit wear", "kw": ["shirt", "t-shirt", "tee", "hoodie", "spirit", "apparel", "sweatshirt", "merch", "swag"], "mark": ["helmet", "full-color"], "use": "Spartans spirit wear: the Stacked Logo or the mark alone. Use a single-ink version for single-ink screen printing.", "color": "Use the supplied colors only. On dark shirts, use the reversed or white file where one is supplied. Give the printer the HEX and CMYK values from the Color section.", "type": "Montserrat Semi-Bold for names, years, and slogans. Never retype the school name; use the logo file.", "rule": "Send the printer the SVG and the CMYK values from the Color section."}, {"k": "Embroidered polo or cap", "kw": ["embroider", "polo", "cap", "hat", "beanie", "jacket", "stitch", "coach"], "mark": ["helmet", "full-color"], "use": "Use the mark at left chest or cap-front size, at or above the minimum size in the Clear Space section.", "color": "Pantone and thread numbers are not part of this kit, so ask the vendor to match the HEX and CMYK values from the Color section.", "type": "n/a", "rule": "Don't embroider the logo below the minimum size; fine detail fills in."}, {"k": "Team uniform", "kw": ["uniform", "jersey", "number", "numeral", "football", "helmet", "basketball", "soccer", "baseball", "softball", "team"], "mark": ["helmet", "full-color"], "use": "The mark alone on the chest or sleeve; the Horizontal or Stacked Logo only where there is room.", "color": "Match the HEX and CMYK values from the Color section across every vendor so all teams match.", "type": "This kit does not include an official numeral set, so jersey numbers aren't covered by this guide.", "rule": "Ask Teo before commissioning new uniform artwork."}, {"k": "Banner or signage", "kw": ["banner", "sign", "signage", "mural", "building", "marquee", "window", "vinyl", "field", "gym", "wall", "vehicle"], "mark": ["stacked", "full-color"], "use": "Stacked Logo on light backgrounds; the reversed file on dark ones where supplied. Horizontal for wide banners.", "color": "Send the vendor the HEX and CMYK values from the Color section for paint or vinyl.", "type": "Montserrat for any added text.", "rule": "Send vector SVG files only, and check the clear space at full size."}, {"k": "AI flyer", "kw": ["ai", "flyer", "poster", "canva", "midjourney", "chatgpt", "dall", "firefly", "generate", "image"], "mark": ["stacked", "full-color"], "use": "Generate background art only, then place the real logo PNG.", "color": "Use the hex codes #CE2028 and #000000 in prompts.", "type": "Add text by hand in Montserrat and Source Code Pro.", "rule": "Never ask AI to draw the Spartan. See the AI & Flyers section."}, {"k": "Club or ASB", "kw": ["club", "asb", "student", "leadership", "band", "choir", "drama", "robotics", "booster", "pta", "organization"], "mark": ["horizontal", "full-color"], "use": "Use an official logo with your club name set beside it in Montserrat, outside the clear space.", "color": "The two brand colors from this page.", "type": "Montserrat Semi-Bold for the club name.", "rule": "Don't redraw, costume, or modify the Spartan for a club. Ask Teo for help with a lockup."}, {"k": "Award or certificate", "kw": ["award", "certificate", "plaque", "trophy", "diploma", "honor", "recognition"], "mark": ["stacked", "full-color"], "use": "Stacked Logo, full color, centered at top.", "color": "Brand colors as accents on white or cream stock.", "type": "Montserrat for the award title, Source Code Pro or Open Sans for details and names.", "rule": "Have the printer match the CMYK values in the Color section for any foil or special ink."}, {"k": "Slides or video", "kw": ["slide", "presentation", "powerpoint", "google slides", "keynote", "video", "broadcast", "livestream", "graphic", "lower third", "scoreboard"], "mark": ["stacked", "full-color"], "use": "Stacked Logo on white; the reversed file on dark title slides where one is supplied, otherwise a white panel behind the logo.", "color": "Primary-color title bars with white text pass contrast. See the Accessibility section for pairings to avoid.", "type": "Montserrat headlines, Source Code Pro or Open Sans body.", "rule": "Use PNGs from this page; never screenshot or copy the logo off a website."}], "email": "teo.lopez@oxnardunion.org"};
+const file=(m,v,ext)=>`logos/${ext}/${CFG.prefix}-${m}-${v}.${ext}`;
+const VBY=Object.fromEntries(CFG.variants.map(v=>[v.key,v]));
+let variant=CFG.variants[0].key;
+function renderLogos(){
+  document.getElementById('vhint').textContent=VBY[variant].hint;
+  document.getElementById('logos').innerHTML=CFG.marks.map(l=>{
+    const ok=l.vers.includes(variant);
+    const v=ok?variant:l.vers[0];
+    const vv=VBY[v];
+    const bg=(vv.dark&&!vv.baked)?` style="background:${CFG.darkstage}"`:'';
+    const note=ok?'':`<span class="tag">${VBY[variant].label} not made for this mark</span>`;
+    return `<article class="cell"><div class="meta" style="margin:0"><span class="lbl"><b>${l.name}</b></span><span class="lbl">${vv.label}</span></div>
+    <div class="stage"${bg}>${note}<img src="${file(l.id,v,'svg')}" alt="${l.name}, ${vv.label}" loading="lazy"></div>
+    <p>${l.desc}</p><div class="acts"><a class="dl-link" href="${file(l.id,v,'svg')}" download>SVG ↓</a><a class="dl-link" href="${file(l.id,v,'png')}" download>PNG ↓</a></div></article>`}).join('');
+}
+document.querySelectorAll('.vchips [data-v]').forEach(b=>b.addEventListener('click',()=>{
+  variant=b.dataset.v;document.querySelectorAll('.vchips [data-v]').forEach(x=>x.setAttribute('aria-pressed',x===b));renderLogos();}));
+renderLogos();
+
+/* Colors */
+const COLORS=CFG.colors;
+const h2r=h=>[0,2,4].map(i=>parseInt(h.slice(i,i+2),16));
+const r2h=a=>a.map(x=>Math.round(Math.max(0,Math.min(255,x))).toString(16).padStart(2,'0')).join('').toUpperCase();
+const mix=(h,t,amt)=>r2h(h2r(h).map((c,i)=>c+(t[i]-c)*amt));
+const lum=h=>{const f=c=>{c/=255;return c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4)};const [r,g,b]=h2r(h);return .2126*f(r)+.7152*f(g)+.0722*f(b)};
+const ratio=(a,b)=>{const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)};
+const cp=t=>`<button class="copy" data-copy="${t}" title="Copy ${t}">${t}</button>`;
+document.getElementById('swatches').innerHTML=COLORS.map(c=>{const rgb=h2r(c.hex).join(' / ');return `<div class="sw"><div class="chip" style="background:#${c.hex};color:${c.fg}"><span>${c.role}</span><h3>${c.n}</h3></div>
+<dl><dt>HEX</dt><dd>${cp('#'+c.hex)}</dd><dt>RGB</dt><dd>${cp(rgb)}</dd><dt>CMYK</dt><dd>${cp(c.cmyk)}</dd></dl><div class="use">${c.use}</div></div>`}).join('');
+function ramp(el,hex){
+  const steps=[['Shade 40%',mix(hex,[0,0,0],.4)],['Shade 20%',mix(hex,[0,0,0],.2)],['Base',hex],['Tint 20%',mix(hex,[255,255,255],.2)],['Tint 40%',mix(hex,[255,255,255],.4)],['Tint 60%',mix(hex,[255,255,255],.6)],['Tint 80%',mix(hex,[255,255,255],.8)]];
+  document.getElementById(el).innerHTML=steps.map(([l,h])=>{const fg=ratio(h,'FFFFFF')>=4.5?'#fff':'#11110F';
+    return `<button data-copy="#${h}" style="background:#${h};color:${fg}" title="Copy #${h}">${l}<span>#${h}</span></button>`}).join('');
+}
+ramp('ramp-a',COLORS[0].hex);ramp('ramp-b',COLORS[1].hex);
+const grade=r=>r>=7?['aaa','AAA']:r>=4.5?['aa2','AA']:r>=3?['lg','Large only']:['fail','Fail'];
+const cell=(fg,bg)=>{const r=ratio(fg,bg),[c,l]=grade(r);return `<td><span class="aa" style="background:#${bg};color:#${fg}">Aa</span>${r.toFixed(2)}:1<span class="pill ${c}">${l}</span></td>`};
+const rows=[...COLORS.map(c=>[c.n,c.hex]),[COLORS[0].n+' Shade 20%',mix(COLORS[0].hex,[0,0,0],.2)],[COLORS[0].n+' Tint 60%',mix(COLORS[0].hex,[255,255,255],.6)],[COLORS[1].n+' Tint 60%',mix(COLORS[1].hex,[255,255,255],.6)]];
+document.getElementById('contrast').innerHTML=rows.map(([n,h])=>`<tr><td><span class="sq" style="background:#${h}"></span>${n}</td>${cell(h,'FFFFFF')}${cell(h,'000000')}${cell('FFFFFF',h)}${cell('000000',h)}</tr>`).join('');
+
+/* Type tester */
+const setNavH=()=>{const n=document.querySelector('.bar');if(n)document.documentElement.style.setProperty('--navh',n.offsetHeight+'px')};setNavH();addEventListener('resize',setNavH);
+const typeSec=document.getElementById('type');
+const PRESETS=CFG.presets;
+let preset='spirit';
+const tt=document.getElementById('tt'),sz=document.getElementById('sz'),szo=document.getElementById('szo');
+function setSpec(){
+  const own=tt.value.trim();
+  document.querySelectorAll('.spec').forEach(el=>{el.textContent=own||PRESETS[preset][+el.dataset.i];});
+}
+tt.addEventListener('input',setSpec);
+document.querySelectorAll('.presets [data-p]').forEach(b=>b.addEventListener('click',()=>{preset=b.dataset.p;tt.value='';
+  document.querySelectorAll('.presets [data-p]').forEach(x=>x.setAttribute('aria-pressed',x===b));setSpec();}));
+sz.addEventListener('input',()=>{typeSec.style.setProperty('--size',sz.value+'px');szo.textContent=sz.value+'px'});
+const dots=[['fg','Cream or ink','var(--fg)'],['var(--spec-blue)',COLORS[0].n,'#'+COLORS[0].hex]];
+if(COLORS[1].hex!=='000000'&&ratio(COLORS[1].hex,'11110F')>2.5)dots.push(['#'+COLORS[1].hex,COLORS[1].n,'#'+COLORS[1].hex]);
+document.getElementById('tdots').innerHTML=dots.map((d,i)=>`<button class="dot" type="button" data-c="${d[0]}" aria-pressed="${i===0}" aria-label="${d[1]}" style="background:${d[2]}"></button>`).join('')+'<button class="reset" type="button" id="resetBtn">Reset All</button>';
+document.querySelectorAll('.dot').forEach(d=>d.addEventListener('click',()=>{
+  typeSec.style.setProperty('--spec-color',d.dataset.c==='fg'?'var(--fg)':d.dataset.c);
+  document.querySelectorAll('.dot').forEach(x=>x.setAttribute('aria-pressed',x===d));}));
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const r=document.documentElement,cur=r.dataset.theme||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  r.dataset.theme=cur==='light'?'dark':'light';});
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  tt.value='';preset='spirit';document.querySelectorAll('.presets [data-p]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.p==='spirit'));
+  sz.value=96;szo.textContent='96px';typeSec.style.removeProperty('--size');typeSec.style.removeProperty('--spec-color');
+  document.querySelectorAll('.dot').forEach((x,i)=>x.setAttribute('aria-pressed',i===0));setSpec();});
+document.getElementById('glyphs').innerHTML=[...`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?&@#$%*+=()[]{}"'.,:;-/\\_·•“”‘’ÁÉÍÓÚÑÜ¿¡`].map(c=>`<span>${c.replace('&','&amp;').replace('"','&quot;').replace('<','&lt;')}</span>`).join('');
+
+/* Ask */
+const ASK=CFG.ask;
+function showAsk(a){
+  document.querySelectorAll('#askchips button').forEach(c=>c.setAttribute('aria-pressed',c.textContent===a.k));
+  const [m,v]=a.mark;
+  const vv=VBY[v];const bg=(vv.dark&&!vv.baked)?` style="background:${CFG.darkstage}"`:'';
+  document.getElementById('answer').innerHTML=`<div class="stage"${bg}><img src="${file(m,v,'svg')}" alt="Recommended mark"></div>
+  <div><h3 class="h-s">${a.k}</h3><dl><dt>Logo</dt><dd>${a.use}</dd><dt>Color</dt><dd>${a.color}</dd><dt>Type</dt><dd>${a.type}</dd><dt>Rule</dt><dd>${a.rule}</dd></dl>
+  <p style="margin-top:14px;display:flex;gap:16px"><a class="dl-link" href="${file(m,v,'svg')}" download>SVG ↓</a><a class="dl-link" href="${file(m,v,'png')}" download>PNG ↓</a></p></div>`;
+}
+document.getElementById('askchips').innerHTML=ASK.map((a,i)=>`<button type="button" data-i="${i}" aria-pressed="false">${a.k}</button>`).join('');
+document.getElementById('askchips').addEventListener('click',e=>{const b=e.target.closest('button');if(b)showAsk(ASK[b.dataset.i])});
+document.getElementById('askf').addEventListener('submit',e=>{e.preventDefault();
+  const q=' '+document.getElementById('askq').value.toLowerCase()+' ';let best=null,score=0;
+  ASK.forEach(a=>{const s=a.kw.reduce((n,k)=>n+(q.includes(k)?k.length:0),0);if(s>score){score=s;best=a}});
+  if(best)showAsk(best);else document.getElementById('answer').innerHTML='<div></div><p>No match for that one. Try a word like "shirt", "banner", "polo", or "flyer", or email Teo Lopez at '+CFG.email+' before publishing.</p>';});
+showAsk(ASK[4]);
+
+/* Play how-to clips only while on screen */
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting&&e.intersectionRatio>=.5){v.play().catch(()=>{})}else{v.pause()}}),{threshold:[0,.5]});
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.clip video').forEach(v=>vio.observe(v));
+
+/* Copy + toast */
+const toast=document.getElementById('toast');let tm;
+const say=m=>{toast.textContent=m;toast.classList.add('show');clearTimeout(tm);tm=setTimeout(()=>toast.classList.remove('show'),1600)};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const t=b.dataset.copy;
+  const p=navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject();
+  p.then(()=>say('Copied '+t)).catch(()=>{const r=document.createRange();r.selectNodeContents(b);const s=getSelection();s.removeAllRanges();s.addRange(r);say('Press Ctrl/Cmd+C to copy')});});
+
+/* Section highlight: top tabs + section links */
+const navLinks=[...document.querySelectorAll('.secnav a')],tabs=[...document.querySelectorAll('.tab')];
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;const id=en.target.id;
+  navLinks.forEach(l=>{const on=l.getAttribute('href')==='#'+id;l.classList.toggle('on',on);if(on){const n=document.getElementById('secnav');n.scrollLeft=l.offsetLeft-(n.clientWidth-l.offsetWidth)/2;}});
+  const grp={logo:'logo','clear-space':'logo',usage:'usage',color:'color',accessibility:'color',type:'type',name:'usage',ai:'usage',ask:'usage'}[id];
+  tabs.forEach(t=>t.classList.toggle('on',t.dataset.sec===grp));}),{rootMargin:'-35% 0px -60% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
